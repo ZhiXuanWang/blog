@@ -98,16 +98,15 @@
             </header>
 
             <div class="article-content">
-                <h1 id="_1">伶枫的博客</h1>
-<p>最简博客系统 —— 通过 GitHub Issues 写博客，Actions 自动构建。</p>
-<h2 id="_2">🚀 工作原理</h2>
+                <p>最简博客系统 —— 通过 GitHub Issues 写博客，Actions 自动构建。</p>
+<h2 id="_1">🚀 工作原理</h2>
 <ol>
 <li><strong>写作</strong>：在 <a href="../../issues">GitHub Issues</a> 写文章（Markdown 格式）</li>
 <li><strong>标签</strong>：添加 <code>blog</code> 标签才会发布</li>
 <li><strong>构建</strong>：Actions 自动抓取 Issues 生成静态页面</li>
 <li><strong>部署</strong>：自动发布到 GitHub Pages</li>
 </ol>
-<h2 id="_3">✍️ 如何写文章</h2>
+<h2 id="_2">✍️ 如何写文章</h2>
 <ol>
 <li>进入 <a href="../../issues/new">Issues → New</a></li>
 <li>标题作为文章标题</li>
@@ -117,7 +116,7 @@
 <li>点击 Submit new issue</li>
 </ol>
 <p>等待约 1 分钟，文章自动发布到博客。</p>
-<h2 id="_4">🏗️ 本地构建（可选）</h2>
+<h2 id="_3">🏗️ 本地构建（可选）</h2>
 <pre><code class="language-bash"># 安装依赖
 pip install requests markdown
 
@@ -127,7 +126,7 @@ python scripts/build.py
 # 查看生成的页面
 cd dist &amp;&amp; python -m http.server 8080
 </code></pre>
-<h2 id="_5">📁 项目结构</h2>
+<h2 id="_4">📁 项目结构</h2>
 <pre><code>.
 ├── .github/workflows/build.yml  # Actions 工作流
 ├── scripts/build.py             # 构建脚本
@@ -137,7 +136,7 @@ cd dist &amp;&amp; python -m http.server 8080
 ├── dist/                        # 生成的静态站点（自动创建）
 └── README.md
 </code></pre>
-<h2 id="_6">🔧 配置</h2>
+<h2 id="_5">🔧 配置</h2>
 <h3 id="1-blog">1. 创建 blog 标签</h3>
 <p>访问：https://github.com/ZhiXuanWang/blog/labels
 - 创建标签 <code>blog</code></p>
@@ -169,7 +168,7 @@ print(&quot;Hello, World!&quot;)
 <p>引用文本
 ```</p>
 </blockquote>
-<h2 id="_7">🌐 访问博客</h2>
+<h2 id="_6">🌐 访问博客</h2>
 <ul>
 <li>首页：https://lf.164746.xyz</li>
 <li>GitHub Pages：https://zhixuanwang.github.io/blog/</li>
