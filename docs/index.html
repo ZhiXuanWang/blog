@@ -216,17 +216,79 @@
             border: 1px solid var(--border);
         }
 
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-alt);
+            border-radius: 12px;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-info span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .contact-info a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+
         /* Footer */
         footer {
             text-align: center;
-            padding: 32px 0;
+            padding: 40px 0;
             color: var(--text-light);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 8px;
         }
 
         footer a {
             color: var(--primary);
             text-decoration: none;
+            margin: 0 4px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive */
@@ -327,9 +389,47 @@ CloudflareSpeedTest 推送「每5分钟自选优选 IP」获取Cloudflare CDN �
         
         </section>
 
+        <!-- Contact Section -->
+        <section class="section">
+            <h2 class="section-title">联系方式</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">✉</div>
+                    <div class="contact-info">
+                        <span>邮箱</span>
+                        <a href="mailto:lingfeng@example.com">lingfeng@example.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-info">
+                        <span>位置</span>
+                        <a href="#">中国</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-info">
+                        <span>网站</span>
+                        <a href="#">lingfeng.dev</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <div class="contact-info">
+                        <span>微信</span>
+                        <a href="#">lingfeng_dev</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer>
             <p>© 2024 伶枫 · 使用 ❤️ 构建</p>
+            <p>
+                <a href="#">RSS</a> · <a href="#">站点地图</a>
+            </p>
         </footer>
     </div>
 </body>
