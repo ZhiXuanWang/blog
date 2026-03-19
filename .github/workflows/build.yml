@@ -4,8 +4,6 @@ on:
   issues:
     types: [opened, edited, closed, reopened, labeled, unlabeled]
   workflow_dispatch:
-  schedule:
-    - cron: '0 */6 * * *'
 
 permissions:
   contents: write
@@ -17,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -24,8 +24,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install requests markdown
+        run: pip install requests markdown
 
       - name: Fetch issues and build
         env:
@@ -33,9 +32,10 @@ jobs:
           REPO: ${{ github.repository }}
         run: python scripts/build.py
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "Update blog from issues [$(date +%Y-%m-%d)]"
+          git push origin main

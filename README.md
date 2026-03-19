@@ -46,15 +46,19 @@ cd dist && python -m http.server 8080
 └── README.md
 ```
 
-## 🔧 自定义
+## 🔧 配置
 
-### 修改博客标题/描述
-编辑 `templates/index.html` 中的内容。
+### 1. 创建 blog 标签
+访问：https://github.com/ZhiXuanWang/blog/labels
+- 创建标签 `blog`
 
-### 修改样式
-编辑 `templates/*.html` 中的 CSS。
+### 2. 配置 GitHub Pages
+访问：https://github.com/ZhiXuanWang/blog/settings/pages
+- **Source**: Deploy from a branch
+- **Branch**: `main` / `docs`
+- 点击 Save
 
-### 绑定自定义域名
+### 3. 绑定自定义域名（可选）
 1. 创建 `CNAME` 文件写入域名
 2. 域名 DNS 添加 CNAME 指向 `ZhiXuanWang.github.io`
 

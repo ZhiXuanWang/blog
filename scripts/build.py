@@ -13,8 +13,8 @@ from urllib.parse import quote
 # 配置
 GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
 REPO = os.environ.get('REPO', 'ZhiXuanWang/blog')
-DIST_DIR = 'dist'
-POSTS_DIR = f'{DIST_DIR}/posts'
+DOCS_DIR = 'docs'
+POSTS_DIR = f'{DOCS_DIR}/posts'
 
 def fetch_issues():
     """获取 GitHub Issues（仅保留 open 且有 blog 标签的）"""
@@ -115,7 +115,7 @@ def main():
     # 生成首页
     print('🏠 生成首页...')
     index_html = generate_index(issues, index_template)
-    with open(f'{DIST_DIR}/index.html', 'w', encoding='utf-8') as f:
+    with open(f'{DOCS_DIR}/index.html', 'w', encoding='utf-8') as f:
         f.write(index_html)
 
     # 生成文章页
@@ -132,7 +132,7 @@ def main():
     if os.path.exists('CNAME'):
         with open('CNAME', 'r') as f:
             cname_content = f.read()
-        with open(f'{DIST_DIR}/CNAME', 'w') as f:
+        with open(f'{DOCS_DIR}/CNAME', 'w') as f:
             f.write(cname_content)
         print('📋 复制 CNAME 文件')
 
