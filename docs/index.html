@@ -5,22 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>伶枫 | 个人博客</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary: #2563eb;
+            --primary-dark: #1d4ed8;
             --text: #1f2937;
             --text-light: #6b7280;
             --bg: #ffffff;
             --bg-alt: #f9fafb;
             --border: #e5e7eb;
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans CJK SC", sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
         }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
         /* Header */
         header {
@@ -28,65 +42,334 @@
             text-align: center;
             border-bottom: 1px solid var(--border);
         }
+
         .avatar {
-            width: 120px; height: 120px; border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
             background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
             margin: 0 auto 24px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 48px; color: white; font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: 600;
         }
-        header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
-        .tagline { color: var(--text-light); font-size: 1.1rem; margin-bottom: 20px; }
 
-        /* Posts */
-        .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
-        .section:last-child { border-bottom: none; }
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section */
+        .section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
         .section-title {
-            font-size: 1.25rem; font-weight: 600; margin-bottom: 24px;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .section-title::before {
-            content: ""; width: 4px; height: 20px;
-            background: var(--primary); border-radius: 2px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .post-card {
-            display: block; background: var(--bg-alt); border-radius: 12px;
-            padding: 24px; margin-bottom: 16px; transition: all 0.2s ease;
-            cursor: pointer; text-decoration: none; color: inherit;
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 2px;
         }
-        .post-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .post-card:last-child { margin-bottom: 0; }
-        .post-date { color: var(--text-light); font-size: 0.85rem; margin-bottom: 8px; }
-        .post-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
-        .post-title a { color: inherit; text-decoration: none; }
-        .post-title a:hover { color: var(--primary); }
-        .post-excerpt { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
-        .post-tags { display: flex; gap: 8px; margin-top: 12px; }
-        .tag { background: white; color: var(--primary); padding: 4px 12px;
-               border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--border); }
+
+        .about-text {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Career */
+        .career-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .career-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .career-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .career-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .career-content .company {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .career-content .period {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Blog Posts */
+        .post-card {
+            display: block;
+            background: var(--bg-alt);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .post-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .post-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .post-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .post-excerpt {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            background: white;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-alt);
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .contact-info span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .contact-info a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
 
         /* Footer */
-        footer { text-align: center; padding: 40px 0; color: var(--text-light); font-size: 0.9rem; }
-        footer a { color: var(--primary); text-decoration: none; }
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
 
         /* Responsive */
         @media (max-width: 640px) {
-            header { padding: 40px 0 32px; }
-            .avatar { width: 100px; height: 100px; font-size: 40px; }
-            header h1 { font-size: 1.5rem; }
-            .section { padding: 32px 0; }
+            header {
+                padding: 40px 0 32px;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <header>
             <div class="avatar">枫</div>
             <h1>伶枫</h1>
             <p class="tagline">软件工程师 · 技术写作者 · 终身学习者</p>
+            <div class="social-links">
+                <a href="https://github.com/ZhiXuanWang" title="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com" title="Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="mailto:lingfeng@example.com" title="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
         </header>
 
+        <!-- About Section -->
+        <section class="section">
+            <h2 class="section-title">关于我</h2>
+            <p class="about-text">
+                你好，我是伶枫。一名热爱技术的软件工程师，专注于 Web 开发与云原生技术。
+                在这里，我记录学习笔记、分享技术心得、沉淀思考感悟。
+                相信代码是一种表达方式，写作是另一种。
+                期待与志同道合的朋友交流成长。
+            </p>
+        </section>
+
+        <!-- Career Section -->
+        <section class="section">
+            <h2 class="section-title">职业经历</h2>
+            <div class="career-item">
+                <div class="career-dot"></div>
+                <div class="career-content">
+                    <h3>高级后端工程师</h3>
+                    <p class="company">某互联网科技公司</p>
+                    <p class="period">2021 年 - 至今</p>
+                </div>
+            </div>
+            <div class="career-item">
+                <div class="career-dot"></div>
+                <div class="career-content">
+                    <h3>后端开发工程师</h3>
+                    <p class="company">某创业团队</p>
+                    <p class="period">2019 年 - 2021 年</p>
+                </div>
+            </div>
+            <div class="career-item">
+                <div class="career-dot"></div>
+                <div class="career-content">
+                    <h3>软件开发实习生</h3>
+                    <p class="company">某知名互联网公司</p>
+                    <p class="period">2018 年 - 2019 年</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Posts Section -->
         <section class="section">
             <h2 class="section-title">最新文章</h2>
             
@@ -103,10 +386,62 @@ CloudflareSpeedTest 推送「每5分钟自选优选 IP」获取Cloudflare CDN �
         
         </section>
 
+        <!-- Contact Section -->
+        <section class="section">
+            <h2 class="section-title">联系方式</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span>邮箱</span>
+                        <a href="mailto:lingfeng@example.com">lingfeng@example.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span>位置</span>
+                        <a href="#">中国</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span>网站</span>
+                        <a href="#">lingfeng.dev</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span>Telegram</span>
+                        <a href="#">@lingfeng</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
         <footer>
-            <p>© 2024 伶枫 · 使用 ❤️ 构建</p>
+            <p>&copy; 2024 伶枫 &middot; 使用 ❤️ 构建</p>
             <p style="margin-top: 8px;">
-                <a href="https://github.com/ZhiXuanWang/blog/issues">在 GitHub Issues 写作</a>
+                <a href="https://github.com/ZhiXuanWang/blog/issues">在 GitHub Issues 写作</a> &middot; <a href="#">RSS</a>
             </p>
         </footer>
     </div>
